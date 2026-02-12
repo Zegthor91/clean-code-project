@@ -1,16 +1,57 @@
-# React + Vite
+# CleanApp - Projet Clean Code
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page pour un produit fictif avec formulaire d'inscription, construite en appliquant les 5 piliers du Clean Code.
 
-Currently, two official plugins are available:
+## Principes appliques
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Lisibilite** : noms descriptifs, code auto-documente, pas de commentaires superflus
+- **Simplicite (KISS)** : composants avec une seule responsabilite, pas d'abstraction inutile
+- **DRY** : logique de validation centralisee et reutilisable
+- **Robustesse** : validation des entrees (format email, date, longueur minimale)
+- **Testabilite** : logique metier decouplee, 21 tests unitaires
 
-## React Compiler
+## Stack technique
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Vitest + Testing Library
 
-## Expanding the ESLint configuration
+## Structure du projet
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+  components/
+    SignupForm.jsx          -- Formulaire d'inscription
+    ValidationMessage.jsx   -- Message "Merci {prenom}"
+  utils/
+    validation.js           -- Fonctions de validation
+  __tests__/
+    validation.test.js      -- Tests logique metier (16 tests)
+    SignupForm.test.jsx     -- Tests composant (5 tests)
+  App.jsx                   -- Page principale
+  App.css                   -- Styles
+```
+
+## Installation
+
+```bash
+npm install
+```
+
+## Commandes
+
+```bash
+npm run dev         # Serveur de developpement
+npm run build       # Build de production
+npm run test        # Lancer les tests
+npm run test:watch  # Tests en mode watch
+npm run lint        # Verification ESLint
+```
+
+## Fonctionnalites
+
+- Landing page avec section hero et features
+- Formulaire : nom, prenom, email, date de naissance
+- Validation cote client avec messages d'erreur
+- Message de confirmation personnalise "Merci {prenom}"
+- Design sombre responsive
