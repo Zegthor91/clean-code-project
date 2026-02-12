@@ -1,34 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import SignupForm from './components/SignupForm'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <header className="header">
+        <nav className="nav">
+          <span className="logo">Clean<span className="logo-accent">App</span></span>
+          <a href="#signup" className="nav-cta">S'inscrire</a>
+        </nav>
+      </header>
+
+      <main>
+        <section className="hero">
+          <span className="hero-badge">Bientôt disponible</span>
+          <h1>L'application qui simplifie <span className="text-gradient">votre quotidien</span></h1>
+          <p className="hero-subtitle">
+            CleanApp arrive bientôt. Une solution simple, rapide et intuitive
+            pour organiser vos tâches efficacement.
+          </p>
+          <a href="#signup" className="hero-cta">Je veux être prévenu</a>
+        </section>
+
+        <hr className="section-separator" />
+
+        <section className="features">
+          <div className="feature">
+            <div className="feature-icon">&#9889;</div>
+            <h3>Simple</h3>
+            <p>Interface épurée, sans superflu. Principe KISS appliqué.</p>
+          </div>
+          <div className="feature">
+            <div className="feature-icon">&#9889;</div>
+            <h3>Rapide</h3>
+            <p>Performance optimisée pour une expérience fluide.</p>
+          </div>
+          <div className="feature">
+            <div className="feature-icon">&#9889;</div>
+            <h3>Fiable</h3>
+            <p>Code robuste et testé pour une utilisation sans accroc.</p>
+          </div>
+        </section>
+
+        <SignupForm />
+      </main>
+
+      <footer className="footer">
+        <p>CleanApp &copy; 2026 — Projet Clean Code</p>
+      </footer>
+    </div>
   )
 }
 
