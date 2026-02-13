@@ -12,8 +12,7 @@ function Sidebar({ remainingStock, totalStock }) {
 
       <nav className="sidebar-nav">
         <a href="#hero" className="sidebar-link">Accueil</a>
-        <a href="#features" className="sidebar-link">Fonctionnalites</a>
-        <a href="#product" className="sidebar-link">Produit</a>
+        <a href="#features" className="sidebar-link">Produits</a>
         {outOfStock && <a href="#signup" className="sidebar-link">Reservation</a>}
       </nav>
 

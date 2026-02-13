@@ -13,8 +13,7 @@ describe('Sidebar', () => {
     render(<Sidebar remainingStock={5} totalStock={5} />)
 
     expect(screen.getByText('Accueil')).toBeInTheDocument()
-    expect(screen.getByText('Fonctionnalites')).toBeInTheDocument()
-    expect(screen.getByText('Produit')).toBeInTheDocument()
+    expect(screen.getByText('Produits')).toBeInTheDocument()
   })
 
   it('affiche le stock restant', () => {
