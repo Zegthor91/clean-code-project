@@ -11,14 +11,14 @@ describe('SignupForm', () => {
     expect(screen.getByLabelText('Prénom')).toBeInTheDocument()
     expect(screen.getByLabelText('Email')).toBeInTheDocument()
     expect(screen.getByLabelText('Date de naissance')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /s'inscrire/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /réserver/i })).toBeInTheDocument()
   })
 
   it('affiche les erreurs de validation quand le formulaire est soumis vide', async () => {
     const user = userEvent.setup()
     render(<SignupForm />)
 
-    await user.click(screen.getByRole('button', { name: /s'inscrire/i }))
+    await user.click(screen.getByRole('button', { name: /réserver/i }))
 
     expect(screen.getByText('Le nom est requis.')).toBeInTheDocument()
     expect(screen.getByText('Le prénom est requis.')).toBeInTheDocument()
@@ -35,7 +35,7 @@ describe('SignupForm', () => {
     await user.type(screen.getByLabelText('Email'), 'marie@test.com')
     await user.type(screen.getByLabelText('Date de naissance'), '2000-05-15')
 
-    await user.click(screen.getByRole('button', { name: /s'inscrire/i }))
+    await user.click(screen.getByRole('button', { name: /réserver/i }))
 
     expect(screen.getByRole('alert')).toHaveTextContent('Merci Marie')
   })
@@ -49,7 +49,7 @@ describe('SignupForm', () => {
     await user.type(screen.getByLabelText('Email'), 'marie@test.com')
     await user.type(screen.getByLabelText('Date de naissance'), '2000-05-15')
 
-    await user.click(screen.getByRole('button', { name: /s'inscrire/i }))
+    await user.click(screen.getByRole('button', { name: /réserver/i }))
 
     expect(screen.getByLabelText('Nom')).toHaveValue('')
     expect(screen.getByLabelText('Prénom')).toHaveValue('')
@@ -60,7 +60,7 @@ describe('SignupForm', () => {
     const user = userEvent.setup()
     render(<SignupForm />)
 
-    await user.click(screen.getByRole('button', { name: /s'inscrire/i }))
+    await user.click(screen.getByRole('button', { name: /réserver/i }))
     expect(screen.getByText('Le nom est requis.')).toBeInTheDocument()
 
     await user.type(screen.getByLabelText('Nom'), 'D')

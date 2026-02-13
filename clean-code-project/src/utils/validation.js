@@ -1,21 +1,21 @@
-export function validateLastName(lastName) {
-  if (!lastName || lastName.trim().length === 0) {
-    return 'Le nom est requis.'
+const MIN_NAME_LENGTH = 2
+
+function validateName(value, fieldLabel) {
+  if (!value || value.trim().length === 0) {
+    return `Le ${fieldLabel} est requis.`
   }
-  if (lastName.trim().length < 2) {
-    return 'Le nom doit contenir au moins 2 caractères.'
+  if (value.trim().length < MIN_NAME_LENGTH) {
+    return `Le ${fieldLabel} doit contenir au moins ${MIN_NAME_LENGTH} caractères.`
   }
   return ''
 }
 
+export function validateLastName(lastName) {
+  return validateName(lastName, 'nom')
+}
+
 export function validateFirstName(firstName) {
-  if (!firstName || firstName.trim().length === 0) {
-    return 'Le prénom est requis.'
-  }
-  if (firstName.trim().length < 2) {
-    return 'Le prénom doit contenir au moins 2 caractères.'
-  }
-  return ''
+  return validateName(firstName, 'prénom')
 }
 
 export function validateEmail(email) {
@@ -29,6 +29,8 @@ export function validateEmail(email) {
   return ''
 }
 
+const MIN_AGE = 13
+
 export function validateBirthDate(birthDate) {
   if (!birthDate) {
     return 'La date de naissance est requise.'
@@ -39,6 +41,15 @@ export function validateBirthDate(birthDate) {
   }
   if (date > new Date()) {
     return 'La date de naissance ne peut pas être dans le futur.'
+  }
+  const today = new Date()
+  let age = today.getFullYear() - date.getFullYear()
+  const monthDiff = today.getMonth() - date.getMonth()
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+    age--
+  }
+  if (age < MIN_AGE) {
+    return `Vous devez avoir au moins ${MIN_AGE} ans.`
   }
   return ''
 }

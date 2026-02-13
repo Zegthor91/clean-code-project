@@ -64,6 +64,13 @@ describe('validateBirthDate', () => {
   it('retourne vide si la date est valide', () => {
     expect(validateBirthDate('2000-05-15')).toBe('')
   })
+
+  it('retourne une erreur si la personne a moins de 13 ans', () => {
+    const today = new Date()
+    const tooYoung = new Date(today.getFullYear() - 10, today.getMonth(), today.getDate())
+    const dateString = tooYoung.toISOString().split('T')[0]
+    expect(validateBirthDate(dateString)).toBe('Vous devez avoir au moins 13 ans.')
+  })
 })
 
 describe('validateSignupForm', () => {

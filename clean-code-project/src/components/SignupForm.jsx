@@ -44,9 +44,10 @@ function SignupForm() {
 
   return (
     <section className="signup-section" id="signup">
-      <h2>Soyez prévenu dès la sortie</h2>
+      <h2>Réservez votre exemplaire</h2>
       <p className="signup-subtitle">
-        Inscrivez-vous pour être notifié quand le produit sera disponible.
+        Le produit est en rupture de stock. Laissez vos coordonnées
+        pour être prévenu dès son retour.
       </p>
 
       {submittedName && <ValidationMessage firstName={submittedName} />}
@@ -106,7 +107,7 @@ function SignupForm() {
         </div>
 
         <button type="submit" className="submit-button">
-          S'inscrire
+          Réserver
         </button>
       </form>
     </section>
