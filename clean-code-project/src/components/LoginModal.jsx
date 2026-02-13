@@ -43,7 +43,7 @@ function LoginModal({ onClose, onLogin }) {
         </button>
 
         <h2 className="modal-title">Se connecter</h2>
-        <p className="modal-subtitle">Accedez a votre espace CleanApp</p>
+        <p className="modal-subtitle">Accedez a votre espace</p>
 
         {error && <p className="modal-error">{error}</p>}
 

@@ -56,22 +56,6 @@ function App() {
         </header>
 
         <main>
-          <section className="hero" id="hero">
-            <span className="hero-badge">
-              {outOfStock ? 'Rupture de stock' : 'Disponible'}
-            </span>
-            <h1>L'application qui simplifie <span className="text-gradient">votre quotidien</span></h1>
-            <p className="hero-subtitle">
-              CleanApp — une solution simple, rapide et intuitive
-              pour organiser vos taches efficacement.
-            </p>
-            <a href="#product" className="hero-cta">
-              {outOfStock ? 'Reserver mon exemplaire' : 'Je veux l\'acheter'}
-            </a>
-          </section>
-
-          <hr className="section-separator" />
-
           <section className="features" id="features">
             {PRODUCTS.map((product) => (
               <div className="feature" key={product.name}>
@@ -91,7 +75,7 @@ function App() {
         </main>
 
         <footer className="footer">
-          <p>CleanApp &copy; 2026 — Projet Clean Code</p>
+          <p>&copy; 2026 — Projet Clean Code</p>
         </footer>
       </div>
 

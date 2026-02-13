@@ -5,7 +5,7 @@ function ProductStock({ remainingStock, onBuy }) {
 
   return (
     <section className="stock-section" id="product">
-      <h2>Obtenez CleanApp maintenant</h2>
+      <h2>Obtenez le produit maintenant</h2>
 
       <div className="stock-counter">
         <span className="stock-number" data-testid="stock-count">
